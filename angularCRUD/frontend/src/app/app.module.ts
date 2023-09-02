@@ -4,25 +4,19 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
-import { CommonModule } from '@angular/common';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { AlertaService } from './alerta.service';
+import { AdminComponent } from './admin/admin.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    AdminComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
-    CommonModule,
-    FormsModule,
-    ReactiveFormsModule
+    AppRoutingModule
   ],
-  providers: [
-    AlertaService
-  ],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

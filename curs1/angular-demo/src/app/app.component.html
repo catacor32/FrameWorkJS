@@ -1,3 +1,19 @@
 <h1>{{title}}</h1>
-<app-home></app-home>
+<img src="{{imageSrc}}" style="max-width: 300px ;" alt="">
+<img *ngIf="afiseaza" [src]="imageSrc" alt="" style="max-width: 300px ;">
+<br>
+<button (click)="showImg()" >Afiseaza/Ascude imagine</button>
+<button (click)="showImg2()" >Afiseaza/Ascude</button>
+<br>
+<button (click)="nr = nr + 1">Creste valoarea cu 1</button>
+<button (click)="nr = nr - 1" >Scade valoarea cu 1</button>
+<br>
+<p [ngClass]="nr >= 7 ? 'green': 'red' " >Valoarea numaraului este {{ nr }}</p>
+<br>
+<form action="" method="post">
+    <input [(ngModel)]="valoare" type="text" name="nume" id="nume" (input)="inputCount()">
+    {{ valoare }}
+</form>
 <router-outlet></router-outlet>
+<app-home></app-home>
+

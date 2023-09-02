@@ -3,4 +3,9 @@
 
 <p [style.color] ="colorR" >Culoarea paragrafului este {{colorR}} </p>
 <p>Eroul meu preferat este {{ eroi[3].name }}</p>
-<p>Numele meu este {{ user.nume }}</p>
+<ul *ngFor="let erou of eroi" >
+    <li *ngIf="erou.id >= 2 && erou.id <= 3">
+        {{ erou.id }}  - {{ erou.name }}
+    </li>
+</ul>
+<p>Numele meu este {{ user.prenume }}  {{ user.nume }}</p>
