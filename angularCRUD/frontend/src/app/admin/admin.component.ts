@@ -1,10 +1,33 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ApiService } from '../api.service';
+import { User } from '../models/user';
 
 @Component({
   selector: 'app-admin',
   templateUrl: './admin.component.html',
   styleUrls: ['./admin.component.css']
 })
-export class AdminComponent {
+export class AdminComponent implements OnInit {
 
+  users:any[] = [];
+  selectedUsers:User = {id:0, nume:'', prenume:'', email:'', datanastere: new Date(), telefon:''}
+
+  constructor(private apiService: ApiService) {}
+
+  ngOnInit(): void {
+  }
+
+  createOrUpdateUser(form: {value: User;}){
+    if(this.selectedUsers && this.selectedUsers.id) {
+      // this.apiService.updateUser(this.selectedUsers.id, form.value).subscribe((user:User) => {
+      //   console.log('User updated:', user);
+      // });
+    }
+    else{
+      this.apiService.createUser(form.value).subscribe((user:User) => {
+        // this.readUsers();
+        console.log('User created:', user);
+      });
+    }
+  }
 }

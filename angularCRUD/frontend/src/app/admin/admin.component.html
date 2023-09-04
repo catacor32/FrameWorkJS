@@ -1,1 +1,117 @@
-<p>admin works!</p>
+<div class="container mt-3">
+
+    <h3>Adaugare / Editare user</h3>
+    <form #f="ngForm" novalidate>
+        <div class="form-group">
+          <label for="nume">Nume</label>
+          <input [(ngModel)]="selectedUsers.nume" #nume="ngModel" type="text" class="form-control" 
+            id="nume" name="nume" aria-describedby="numeHelp" placeholder="Nume" required minlength="3" maxlength="250"
+            pattern="^[a-zA-Z-]+$" [class.is-invalid] = "nume.invalid && (nume.dirty || nume.touched)">
+            <small *ngif="nume.valid" id="numeHelp" class="form-test text-muted">Numele corect</small>
+            <div *ngIf="nume.invalid && (nume.dirty || nume.touched)" class="invalid-fedback">
+                <div *ngIf="nume.errors?.['required']">
+                    Acest camp este obigatoriu.
+                </div >
+                <div *ngIf="nume.errors?.['minlength']">
+                    Acest camp trebuie sa fie de cel putin 3 de caractere.
+                </div>
+                <div *ngIf="nume.errors?.['maxlength']">
+                    Acest camp trebuie sa constina maxim 250 de caractere.
+                </div>
+                <div *ngIf="nume.errors?.['pattern']">
+                    Acest camp trebuie sa constina doar caractere alfanumerice si -.
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="prenume">Prenume</label>
+            <input [(ngModel)]="selectedUsers.prenume" #prenume="ngModel" type="text" class="form-control" 
+              id="nume" name="prenume" aria-describedby="prenumeHelp" placeholder="prenume" required minlength="3" maxlength="250"
+              pattern="^[a-zA-Z-]+$" [class.is-invalid] = "prenume.invalid && (prenume.dirty || prenume.touched)">
+              <small *ngif="prenume.valid" id="prenumeHelp" class="form-test text-muted">Prenume corect</small>
+              <div *ngIf="prenume.invalid && (prenume.dirty || prenume.touched)" class="invalid-fedback">
+                  <div *ngIf="prenume.errors?.['required']">
+                      Acest camp este obigatoriu.
+                  </div >
+                  <div *ngIf="prenume.errors?.['minlength']">
+                      Acest camp trebuie sa fie de cel putin 3 de caractere.
+                  </div>
+                  <div *ngIf="prenume.errors?.['maxlength']">
+                      Acest camp trebuie sa constina maxim 250 de caractere.
+                  </div>
+                  <div *ngIf="prenume.errors?.['pattern']">
+                      Acest camp trebuie sa constina doar caractere alfanumerice si -.
+                  </div>
+              </div>
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input [(ngModel)]="selectedUsers.email" #email="ngModel" type="text" class="form-control" 
+              id="nume" name="email" aria-describedby="emailHelp" placeholder="Email" required minlength="3" maxlength="250"
+              pattern="^[a-zA-Z-]+$" [class.is-invalid] = "email.invalid && (email.dirty || email.touched)">
+              <small *ngif="email.valid" id="emailHelp" class="form-test text-muted">Email corect</small>
+              <div *ngIf="email.invalid && (email.dirty || email.touched)" class="invalid-fedback">
+                  <div *ngIf="email.errors?.['required']">
+                      Acest camp este obigatoriu.
+                  </div >
+                  <div *ngIf="email.errors?.['minlength']">
+                      Acest camp trebuie sa fie de cel putin 3 de caractere.
+                  </div>
+                  <div *ngIf="email.errors?.['maxlength']">
+                      Acest camp trebuie sa constina maxim 250 de caractere.
+                  </div>
+                  <div *ngIf="email.errors?.['pattern']">
+                      Acest camp trebuie sa constina doar caractere alfanumerice si -.
+                  </div>
+              </div>
+          </div>
+          <div class="form-group">
+            <label for="datanastere">Data nastere</label>
+            <input [(ngModel)]="selectedUsers.datanastere" #datanastere="ngModel" type="date" class="form-control" 
+              id="datanastere" name="datanastere" aria-describedby="datanastereHelp" placeholder="Data nastere" required minlength="3" maxlength="250"
+                pattern="(?:19|20)[0-9]{2}-(?:(?:0[1-9]|1[0-2])-(?:0[1-9]|1[0-9]|2[0-9])|(?:(?!02)(?:0[1-9]|1[0-2])-(?:30))|(?:(?:0[13578]|1[02])-31))" 
+                [class.is-invalid] = "datanastere.invalid && (datanastere.dirty || datanastere.touched)">
+              <small *ngif="datanastere.valid" id="datanastereHelp" class="form-test text-muted">Data nastere corecta</small>
+              <div *ngIf="datanastere.invalid && (datanastere.dirty || datanastere.touched)" class="invalid-fedback">
+                  <div *ngIf="datanastere.errors?.['required']">
+                      Acest camp este obigatoriu.
+                  </div >
+                  <div *ngIf="datanastere.errors?.['minlength']">
+                      Acest camp trebuie sa fie de cel putin 3 de caractere.
+                  </div>
+                  <div *ngIf="datanastere.errors?.['maxlength']">
+                      Acest camp trebuie sa constina maxim 250 de caractere.
+                  </div>
+                  <div *ngIf="datanastere.errors?.['pattern']">
+                      Acest camp trebuie sa constina doar format de tip Date.
+                  </div>
+              </div>
+          </div>
+          <div class="form-group">
+            <label for="telefon">Telefon</label>
+            <input [(ngModel)]="selectedUsers.telefon" #telefon="ngModel" type="text" class="form-control" 
+              id="nume" name="telefon" aria-describedby="telefonHelp" placeholder="Telefon" required minlength="3" maxlength="14"
+              pattern="[0-9]+" [class.is-invalid] = "telefon.invalid && (telefon.dirty || telefon.touched)">
+              <small *ngif="telefon.valid" id="telefonHelp" class="form-test text-muted">Telefon corect</small>
+              <div *ngIf="telefon.invalid && (telefon.dirty || telefon.touched)" class="invalid-fedback">
+                  <div *ngIf="telefon.errors?.['required']">
+                      Acest camp este obigatoriu.
+                  </div >
+                  <div *ngIf="telefon.errors?.['minlength']">
+                      Acest camp trebuie sa fie de cel putin 3 de caractere.
+                  </div>
+                  <div *ngIf="telefon.errors?.['maxlength']">
+                      Acest camp trebuie sa constina maxim 250 de caractere.
+                  </div>
+                  <div *ngIf="telefon.errors?.['pattern']">
+                      Acest camp trebuie sa constina doar numere.
+                  </div>
+              </div>
+          </div>
+        <div class="form-check">
+          <input type="checkbox" class="form-check-input" id="exampleCheck1">
+          <label class="form-check-label" for="exampleCheck1">Check me out</label>
+        </div>
+        <button [disabled]="!f.valid" (click)="createOrUpdateUser(f)" type="submit" class="btn btn-primary">Submit</button>
+      </form>
+</div>
