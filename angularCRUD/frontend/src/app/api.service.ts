@@ -14,15 +14,19 @@ export class ApiService {
 
   constructor(private httpClient: HttpClient) { }
 
-  readUsers(): Observable<User[]> {
-    return this.httpClient.get<User[]>(`${this.NODE_API_SERVER}`);
-  }
-
-  createUser(user: User): Observable<User> {
+  createUser(user: User): Observable<User>{
     return this.httpClient.post<User>(`${this.NODE_API_SERVER}`, user);
   }
-
-  updateUser(user: User): Observable<User> {
-    return this.httpClient.put<User>(`${this.NODE_API_SERVER}`, user);
+  readUsers(): Observable<User[]>{
+    return this.httpClient.get<User[]>(`${this.NODE_API_SERVER}`);
+  }
+  readUser(id:string): Observable<User[]>{
+    return this.httpClient.get<User[]>(`${this.NODE_API_SERVER}/${id}`);
+  }
+  updateUser(id:number,user: User){
+    return this.httpClient.put<User>(`${this.NODE_API_SERVER}/${id}`, user);
+  }
+  deleteUser(id: number){
+    return this.httpClient.delete<User>(`${this.NODE_API_SERVER}/${id}`);
   }
 }

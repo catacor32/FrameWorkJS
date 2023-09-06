@@ -48,7 +48,7 @@
             <label for="email">Email</label>
             <input [(ngModel)]="selectedUsers.email" #email="ngModel" type="text" class="form-control" 
               id="nume" name="email" aria-describedby="emailHelp" placeholder="Email" required minlength="3" maxlength="250"
-              pattern="^[a-zA-Z-]+$" [class.is-invalid] = "email.invalid && (email.dirty || email.touched)">
+              pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" [class.is-invalid] = "email.invalid && (email.dirty || email.touched)">
               <small *ngif="email.valid" id="emailHelp" class="form-test text-muted">Email corect</small>
               <div *ngIf="email.invalid && (email.dirty || email.touched)" class="invalid-fedback">
                   <div *ngIf="email.errors?.['required']">
@@ -61,7 +61,7 @@
                       Acest camp trebuie sa constina maxim 250 de caractere.
                   </div>
                   <div *ngIf="email.errors?.['pattern']">
-                      Acest camp trebuie sa constina doar caractere alfanumerice si -.
+                      Acest camp trebuie sa constina doar email.
                   </div>
               </div>
           </div>
@@ -108,10 +108,31 @@
                   </div>
               </div>
           </div>
-        <div class="form-check">
-          <input type="checkbox" class="form-check-input" id="exampleCheck1">
-          <label class="form-check-label" for="exampleCheck1">Check me out</label>
-        </div>
         <button [disabled]="!f.valid" (click)="createOrUpdateUser(f)" type="submit" class="btn btn-primary">Submit</button>
       </form>
+    <br>
+
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Nume</th>
+            <th scope="col">Prenume</th>
+            <th scope="col">Email</th>
+            <th scope="col">Operatii</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let user of users" [attr.id]="user.id">
+            <td>{{ user.id }}</td>
+            <td>{{ user.nume }}</td>
+            <td>{{ user.prenume }}</td>
+            <td>{{ user.email }}</td>
+            <td>
+              <button type="button" class="btn btn-primary" (click)="deleteUser(user.id)">Delete</button>
+              <button type="button" class="btn btn-danger" (click)="selectUser(user)">Update</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
 </div>
