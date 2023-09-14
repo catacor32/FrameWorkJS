@@ -9,6 +9,7 @@ import NoPage from './pages/NoPage';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import Autor from './pages/Autor';
 
 
 
@@ -22,6 +23,7 @@ root.render(
           <Route path='home' element={<Home />} />
           <Route path='Blog' element={<Blog />} />
           <Route path='Contact' element={<Contact />} />
+          <Route path='Autor' element={<Autor />} />
           <Route path='*' element={<NoPage />} />
         </Route>
       </Routes>
