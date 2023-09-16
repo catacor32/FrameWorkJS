@@ -16,11 +16,11 @@ import Posts from "./pages/Posts";
 import SinglePost from "./pages/SinglePost";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
-// import EditUser from "./components/EditUser";
-// import UserList from "./pages/UserList";
-// import CreatePost from "./components/CreatePost";
-// import EditPost from "./components/EditPost";
-// import PostList from "./pages/PostList";
+import EditUser from "./components/EditUser";
+import UserList from "./pages/UserList";
+import CreatePost from "./components/CreatePost";
+import EditPost from "./components/EditPost";
+import PostList from "./pages/PostList";
 import NoPage from "./pages/NoPage";
 
 
@@ -39,12 +39,12 @@ function App() {
 
               <Route path="myregister" element={<Register />} />
             
-              {/* { <Route path="/edit-user/:id" element={<EditUser />} />
+               <Route path="/edit-user/:id" element={<EditUser />} />
               <Route path="/view-users" element={<UserList />} />
 
               <Route path="/add-post" element={<CreatePost />} />
               <Route path="/edit-post/:id" element={<EditPost />} />
-              <Route path="/view-posts" element={<PostList />} /> } */}
+              <Route path="/view-posts" element={<PostList />} />
               <Route path="*" element={<NoPage />} />
             </Route>
         </Routes>
